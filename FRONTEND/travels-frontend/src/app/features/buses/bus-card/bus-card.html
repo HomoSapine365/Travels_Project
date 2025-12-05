@@ -1,0 +1,19 @@
+<div class="card h-100">
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title">
+      {{ bus.bus_name }} <span class="badge bg-info text-dark ms-2">{{ bus.number }}</span>
+    </h5>
+
+    <p class="mb-1">{{ bus.origin }} → {{ bus.destination }}</p>
+
+    <div *ngIf="featuresArray.length" class="mt-2">
+      <span *ngFor="let f of featuresArray" class="badge rounded-pill bg-light text-dark me-1 small">
+        {{ f }}
+      </span>
+    </div>
+
+    <p class="text-muted small">Depart: {{ bus.start_time }} • Arrive: {{ bus.reach_time }}</p>
+    <p class="mb-2 mt-auto"><strong>₹{{ bus.price }}</strong></p>
+    <button class="btn btn-primary w-100 mt-2" (click)="onView()">View Seats & Book</button>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="filter-row">
+  <div class="col-md-4">
+    <input class="form-control" placeholder="Search buses..." [(ngModel)]="searchText" (input)="applyFilters()" />
+  </div>
+  <div class="col-md-3">
+    <select class="form-select" [(ngModel)]="selectedOrigin" (change)="applyFilters()">
+      <option value="">All origins</option>
+      <option *ngFor="let o of origins" [value]="o">{{ o }}</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <select class="form-select" [(ngModel)]="selectedDestination" (change)="applyFilters()">
+      <option value="">All destinations</option>
+      <option *ngFor="let d of destinations" [value]="d">{{ d }}</option>
+    </select>
+  </div>
+  <div class="col-md-2 text-end">
+    <button class="btn btn-outline-secondary" (click)="clearFilters()">Clear</button>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-4" *ngFor="let bus of filteredBuses">
+    <app-bus-card [bus]="bus" (view)="goToBus(bus.id)"></app-bus-card>
+  </div>
+</div>

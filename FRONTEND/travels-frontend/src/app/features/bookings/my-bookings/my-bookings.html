@@ -1,0 +1,11 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="!loading && bookings.length === 0">You have no bookings.</div>
+<div *ngIf="!loading && bookings.length > 0">
+  <div *ngFor="let b of bookings; let i = index" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ b.bus?.bus_name || b.bus }}</h5>
+      <p class="card-text">Seat: {{ b.seat?.seat_number || b.seat }} | Date: {{ b.travel_date }}</p>
+      <button class="btn btn-danger" (click)="cancel(b.id)">Cancel Booking</button>
+    </div>
+  </div>
+</div>

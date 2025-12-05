@@ -1,0 +1,25 @@
+.section-lg {
+  padding-block: 2.5rem;
+}
+
+.bookings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bookings-header h3 {
+  font-weight: 600;
+}
+
+.booking-card {
+  margin-bottom: 1rem;
+}
+
+.booking-meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+}

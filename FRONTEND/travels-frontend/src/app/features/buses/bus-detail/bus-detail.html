@@ -1,0 +1,64 @@
+<div class="bus-detail-wrapper" *ngIf="!loading">
+  <h2 class="mb-2">{{ bus?.bus_name }}</h2>
+
+  <div class="mb-2 text-muted">
+    <strong>Route:</strong> {{ bus?.origin }} → {{ bus?.destination }} &nbsp;&nbsp;
+    <strong>Depart:</strong> {{ bus?.start_time }} &nbsp; <strong>Arrive:</strong> {{ bus?.reach_time }}
+    &nbsp;&nbsp; <strong>Bus No:</strong> {{ bus?.number }}
+  </div>
+
+
+  <!-- FEATURES -->
+  <div *ngIf="features.length" class="mb-3">
+    <strong>Features:</strong>
+    <span *ngFor="let f of features" class="badge rounded-pill bg-light text-dark me-1 small">
+      {{ f }}
+    </span>
+  </div>
+
+  <!-- Bus Seats Details -->
+  <div class="legend mb-3">
+    <span class="legend-pill available">Available</span>
+    <span class="legend-pill booked">Booked</span>
+    <span class="legend-pill selected">Selected</span>
+  </div>
+
+  <!-- Seats grid -->
+  <div class="seats-grid">
+    <button *ngFor="let s of seats"
+            class="seat-btn"
+            [ngClass]="{
+              'booked': s.is_booked,
+              'selected': isSelected(s),
+              'available': !s.is_booked && !isSelected(s)
+            }"
+            [disabled]="s.is_booked"
+            (click)="toggleSeatSelection(s)">
+      <div class="seat-number">{{ s.seat_number }}</div>
+      <div *ngIf="s.is_booked" class="seat-sub">Booked</div>
+    </button>
+  </div>
+
+  <!-- Booking row -->
+  <div class="booking-row mt-3 d-flex align-items-center">
+    <input type="date" class="form-control w-auto me-3 d-inline-block"
+           [(ngModel)]="travelDate" />
+    <button class="btn btn-primary"
+            (click)="proceedToPayment()"
+            [disabled]="!isLoggedIn() || !travelDate || selectedSeats.length === 0">
+      Proceed to Payment
+    </button>
+  </div>
+
+  <!-- Helper messages -->
+  <div class="mt-2">
+    <small class="text-muted" *ngIf="!isLoggedIn()">
+      You must <a routerLink="/login">login</a> to book a ticket.
+    </small>
+    <small class="text-muted" *ngIf="isLoggedIn() && !travelDate">
+      Please select a travel date.
+    </small>
+  </div>
+</div>
+
+<div *ngIf="loading">Loading seats...</div>

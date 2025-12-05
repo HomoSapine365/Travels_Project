@@ -1,0 +1,49 @@
+.section-lg {
+  padding-block: 2.5rem;
+}
+
+.bus-header {
+  margin-bottom: 1.5rem;
+}
+
+.bus-header h2 {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.bus-meta-line {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.bus-features {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.legend {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend span {
+  font-size: 0.85rem;
+}
+
+.seats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(40px, 1fr));
+  gap: 0.5rem;
+  max-width: 360px;
+}
+
+.seat-btn {
+  border-radius: 10px;
+  padding-block: 0.4rem;
+  font-size: 0.85rem;
+}

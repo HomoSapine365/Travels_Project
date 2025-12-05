@@ -1,0 +1,21 @@
+<nav class="navbar navbar-dark bg-primary px-3 align-items-center">
+  <span class="navbar-brand mb-0 h1">Hell &amp; Heaven Travels...</span>
+
+  <div class="d-flex align-items-center ms-auto">
+    <a routerLink="/" class="btn btn-light btn-sm me-2">Home</a>
+
+    <!-- use the public currentUser$ exposed by header.ts -->
+    <ng-container *ngIf="currentUser$ | async as user; else loggedOut">
+      <a routerLink="/profile" class="btn btn-outline-light btn-sm me-2 hello-badge" title="View profile">
+        Hello, {{ user?.username || ('User #' + user?.id) }}
+      </a>
+      <a routerLink="/my-bookings" class="btn btn-light btn-sm me-2">My Bookings</a>
+      <button class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
+    </ng-container>
+
+    <ng-template #loggedOut>
+      <a routerLink="/login" class="btn btn-light btn-sm me-2">Login</a>
+      <a routerLink="/register" class="btn btn-light btn-sm me-2">Register</a>
+    </ng-template>
+  </div>
+</nav>

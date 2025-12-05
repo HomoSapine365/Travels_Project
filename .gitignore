@@ -1,0 +1,32 @@
+# ============================
+# Django / Python
+# ============================
+BACKEND/venv/
+BACKEND/**/__pycache__/
+BACKEND/**/*.pyc
+BACKEND/**/*.pyo
+BACKEND/**/*.pyd
+BACKEND/db.sqlite3
+BACKEND/*.log
+
+# Django environment files
+BACKEND/.env
+*.env
+
+# ============================
+# Angular / Node
+# ============================
+FRONTEND/travels-frontend/node_modules/
+FRONTEND/travels-frontend/dist/
+FRONTEND/travels-frontend/.angular/
+
+# Angular environment files
+FRONTEND/travels-frontend/.env
+
+# ============================
+# IDE / OS
+# ============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

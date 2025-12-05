@@ -1,0 +1,25 @@
+.bus-card {
+  cursor: pointer;
+}
+
+.bus-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.bus-card-title {
+  font-weight: 600;
+}
+
+.bus-card-route {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.bus-card-meta {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+}
